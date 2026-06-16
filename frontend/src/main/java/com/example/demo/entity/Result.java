@@ -1,0 +1,43 @@
+package com.example.demo.entity;
+
+public class Result {
+    private Integer code;
+    private String message;
+    private Object data;
+
+    public Result() {}
+
+    public Result(Integer code, String message, Object data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
+    // 快捷成功返回（不带数据）
+    public static Result success() {
+        return new Result(200, "success", null);
+    }
+
+    // 快捷成功返回（带提示信息）
+    public static Result success(String message) {
+        return new Result(200, message, null);
+    }
+
+    // 快捷成功返回（带数据）
+    public static Result success(Object data) {
+        return new Result(200, "success", data);
+    }
+
+    // 快捷失败返回
+    public static Result error(Integer code, String message) {
+        return new Result(code, message, null);
+    }
+
+    // Get/Set 方法
+    public Integer getCode() { return code; }
+    public void setCode(Integer code) { this.code = code; }
+    public String getMessage() { return message; }
+    public void setMessage(String message) { this.message = message; }
+    public Object getData() { return data; }
+    public void setData(Object data) { this.data = data; }
+}
